@@ -1,0 +1,8 @@
+class Solution {
+  public:
+    string toLower(string s) {
+        // code here
+        transform(s.begin(), s.end(), s.begin(), ::tolower);
+        return s;
+    }
+};
