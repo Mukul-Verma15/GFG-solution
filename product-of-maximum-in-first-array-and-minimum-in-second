@@ -1,0 +1,21 @@
+class Solution{
+    public:
+        long long find_multiplication(int a[], int b[], int n, int m)
+    {
+        // Complete the function
+        int max=a[0];
+        int min=b[0];
+        for(int i=1;i<n;i++)
+        {
+            if(max<a[i])
+                max=a[i];
+        }
+        for(int i=0;i<m;i++)
+        {
+            if(min>b[i])
+                min=b[i];
+        }
+        int p=min*max;
+        return p;
+    }
+};
