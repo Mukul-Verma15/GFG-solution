@@ -1,0 +1,26 @@
+class Solution
+{
+public:
+	public:
+		int find_median(vector<int> v)
+		{
+		    // Code here.
+		    sort(v.begin(),v.end());
+		    for(auto x:v)
+		    cout << x << " ";
+		    int n=x.size();
+		    int mid;
+		    if(n%2!=0)
+		    {
+		        mid=(floor(n/2));
+		        return x[mid];
+		    }
+		    else
+		    {
+		        mid=n/2;
+		        return x[mid]+x[mid+1];
+		    }
+		    return 0;
+		    
+		}
+};
