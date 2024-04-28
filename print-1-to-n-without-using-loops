@@ -1,0 +1,14 @@
+class Solution{
+    public:
+    //Complete this function
+    void printNos(int N)
+    {
+        //Your code here
+        int i=0;
+        begin:
+          i=i+1;
+          cout<<i<<" ";
+        if(i<N)
+          goto begin;
+    }
+};
