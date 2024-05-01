@@ -1,0 +1,26 @@
+class Solution
+{
+    public:
+    //Function to check if a string is Isogram or not.
+    bool isIsogram(string s)
+    {
+        //Your code here
+        int c=0;
+        int n=s.size();
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(s[i]==s[j])
+                {
+                    c++;
+                }
+            }
+        }
+        if(c==0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+};
