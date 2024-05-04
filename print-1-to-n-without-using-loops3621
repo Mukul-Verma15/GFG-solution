@@ -1,0 +1,14 @@
+class Solution
+{
+public:
+    void printTillN(int N)
+    {
+        // Write Your Code here
+        int i=1;
+        label:
+          cout<<i<<" ";
+          i++;
+        if(i<=N)
+           goto label;
+    }
+};
