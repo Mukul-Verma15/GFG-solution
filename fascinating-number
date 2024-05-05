@@ -1,0 +1,24 @@
+class Solution{
+public:
+	
+	bool fascinating(int n) {
+	    // code here
+	   string res_1=to_string(n);
+	   string res_2=to_string(n*2);
+	   string res_3=to_string(n*3);;
+	   
+	   
+	   string sum=res_1+res_2+res_3;
+	   sort(sum.begin(), sum.end());
+	   
+	   
+	   if(sum=="123456789")
+	   {
+	       return 1;
+	   }
+	   else
+	   {
+	       return 0;
+	   }
+	}
+};
