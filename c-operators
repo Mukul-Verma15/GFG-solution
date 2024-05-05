@@ -1,0 +1,28 @@
+class Solution {
+  public:
+    vector<int> cppOperators(int A, int B) {
+        // code here
+        vector<int> ans;
+        int sum = A+B;
+        int mul = A*B;
+        
+        int dif,divi;
+        if(B>A)
+        {
+            dif = B-A;
+            divi = B/A;
+        }
+        else
+        {
+            dif = A-B;
+            divi = A/B;
+        }
+        ans.push_back(sum);
+        ans.push_back(mul);
+        ans.push_back(dif);
+        ans.push_back(divi);
+        
+        return ans;
+    }
+    
+};
