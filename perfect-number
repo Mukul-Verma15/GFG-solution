@@ -1,0 +1,22 @@
+class Solution {
+  public:
+    int fact(int n)
+  {
+      if(n==1||n==0)
+      {
+          return 1;
+      }
+      return n*fact(n-1);
+  }
+    int isPerfect(int n) {
+        // code here
+        int sum=0;
+        int tmp=n;
+        while(n>0)
+        {
+            sum+=fact(n%10);
+            n/=10;
+        }
+        return sum==tmp?1:0;
+    }
+};
