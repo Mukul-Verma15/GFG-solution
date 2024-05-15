@@ -1,0 +1,14 @@
+class Solution{
+	public:
+	vector<long long int> find(int l, int b, int h)
+	{
+	    // Code here
+	    long long int L=(long long int)l;
+	    long long int B=(long long int)b;
+	    long long int H=(long long int)h;
+	    vector<long long int> arr;
+	    arr.push_back(2*((L*B)+(B*H)+(H*L)));
+	    arr.push_back(L*B*H);
+	    return arr;
+	} 
+};
