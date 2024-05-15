@@ -1,0 +1,22 @@
+class Solution
+{
+	public:
+		vector<int> find_sum(int n)
+		{
+		    // Code here
+		    vector<int> arr;
+		    int sum=0;
+		    int sums=0;
+		    for(int i=1;i<=n;i+=2)
+		    {
+		        sum=sum+i;
+		    }
+		    for(int i=0;i<=n;i+=2)
+		    {
+		        sums=sums+i;
+		    }
+		    arr.push_back(sum);
+		    arr.push_back(sums);
+		    return arr;
+		}
+};
