@@ -1,0 +1,28 @@
+class Solution {
+  public:
+    vector<int> EvenOddSum(int N, int Arr[]) {
+        // code here
+        vector<int>array;
+        int sum=0;
+        int sums=0;
+        if(N%2!=0)
+        {
+            for(int i=0;i<=N;i+=2){
+            sum+=Arr[i];
+          }
+            for(int i=1;i<N;i+=2){
+            sums+=Arr[i];
+          }
+        }
+        else
+        {
+            for(int i=0;i<N;i+=2){
+            sum+=Arr[i];
+          }
+            for(int i=1;i<N;i+=2){
+            sums+=Arr[i];
+          }
+        }
+        return {sum,sums};
+    }
+};
