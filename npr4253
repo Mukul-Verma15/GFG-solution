@@ -1,0 +1,15 @@
+class Solution{
+public:
+    static long fac(int m)
+    {
+        long fact=1;
+        for(int i=1;i<=m;i++){
+            fact*=i;
+        }
+        return fact;
+    }
+    long long nPr(int n, int r){
+        // code here
+        return fac(n)/fac(n-r);
+    }
+};
