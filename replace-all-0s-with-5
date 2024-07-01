@@ -1,0 +1,22 @@
+int convertFive(int n) {
+    // Your code here
+    int d,res=0;
+    while(n!=0)
+	{
+		d=n%10;
+		if(d==0)
+		{
+			d=5;
+		}
+		res=res*10+d;
+		n/=10;
+	}
+	int rex=0;
+	while(res!=0)
+	{
+		d=res%10;
+		rex=rex*10+d;
+		res/=10;
+	}
+	return rex;
+}
