@@ -1,0 +1,24 @@
+class Solution {
+  public:
+    // Function to check if array has 2 elements
+    // whose sum is equal to the given value
+    bool hasArrayTwoCandidates(vector<int>& arr, int x) {
+        // code here
+        sort(arr.begin(),arr.end());
+        int s = 0;
+        int n=arr.size();l
+        int e = n-1;
+        while(s < e){
+            int sum = arr[s]+arr[e];
+            if(sum == x ){
+                return true;
+            }else if(sum < x){
+                s++;
+            }else{
+                e--;
+            }
+        }
+        return false;
+            
+    }
+};
