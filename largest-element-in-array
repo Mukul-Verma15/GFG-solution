@@ -1,0 +1,13 @@
+class Solution
+{
+public:
+    int largest(vector<int> &arr, int n)
+    {
+        int greater=arr[0];
+        for(int i=1;i<n;i++){
+            if(greater<arr[i])
+               greater=arr[i];
+        }
+        return greater;
+    }
+};
