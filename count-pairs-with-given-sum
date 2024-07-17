@@ -1,0 +1,18 @@
+class Solution {
+  public:
+    int getPairsCount(const vector<int>& arr, int k) {
+        // code here
+    int n=arr.size();
+    unordered_map<int, int> mp;
+    int count = 0;
+    
+    for (int i = 0; i < n; i++) {
+        // Check if there exists an element in the map which can be paired with arr[i] to form the sum
+        if (mp.find(k- arr[i]) != mp.end()) {
+            count += mp[k - arr[i]];
+        }
+        // Increment the count of the current element in the map
+        mp[arr[i]]++;
+    }return count;
+  }
+};
