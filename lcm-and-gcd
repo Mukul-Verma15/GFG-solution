@@ -1,0 +1,28 @@
+//{ Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+class Solution {
+  public:
+    long long gcd(long long A, long long B) {
+        while(A > 0 && B > 0){
+            if(A>B) A= A%B;
+            else B= B%A;
+        }
+        if(A==0) return B;
+        else return A;
+    }
+    long long lcm(long long A , long long B) {
+        return (A * B) / gcd(A, B);
+    }
+    vector<long long> lcmAndGcd(long long A , long long B) {
+        // code here
+        long long lcmValue = lcm(A, B);
+        long long gcdValue = gcd(A, B);
+        vector<long long> result;
+        result.push_back(lcmValue);
+        result.push_back(gcdValue);
+        return result;
+    }
+};
