@@ -1,0 +1,16 @@
+ vector<long long> ans(n,-1);
+        stack<pair<long long, int>> st;
+        st.push({arr[0],0});
+        for(int i=1;i<n;i++){
+            if(st.empty()){
+                st.push({arr[i],i});
+                continue;
+            }
+            while(!st.empty() && st.top().first<arr[i]){
+                ans[st.top().second] = arr[i];
+                st.pop();
+            }
+            st.push({arr[i],i});
+        }
+        return ans;
+    }
