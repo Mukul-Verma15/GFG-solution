@@ -1,0 +1,27 @@
+class Solution {
+  public:
+   int len(Node *head){
+       int count=0;
+       Node *temp=head;
+       while(temp!=NULL){
+           count++;
+           temp=temp->next;
+       }
+       return count;
+   }
+    int getKthFromLast(Node *head, int k) {
+        // Your code here
+        Node *temp=head;
+        int length=len(head);
+        int count=0;
+        
+        if(k>length)
+          return -1;
+        
+        while(count<length-k){
+            temp=temp->next;
+            count++;
+        }
+        return temp->data;
+    }
+};
