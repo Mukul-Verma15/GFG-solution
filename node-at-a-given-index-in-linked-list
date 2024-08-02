@@ -1,0 +1,35 @@
+class Solution {
+  public:
+    int getlen(Node *head)
+    {
+        Node *temp=head;
+        int count=0;
+        
+        while(temp!=NULL){
+            count++;
+            temp=temp->next;
+           
+        }
+        return count;
+    }
+    int GetNth(Node *head, int index) {
+        // Code Here
+        Node *temp=head;
+        Node *prev=NULL;
+        int length=getlen(head);
+        if(index>length)
+        { 
+            return -1;
+        }
+        else
+        {
+            int count=1;
+            while(temp!=NULL){
+                if(count==index)
+                  return temp->data;
+                count++;
+                temp=temp->next;
+            }
+        }
+    }
+};
