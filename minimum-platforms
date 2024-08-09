@@ -1,0 +1,20 @@
+sort(arr, arr + n);
+        sort(dep, dep + n);
+        
+        int i = 0, j = 0, maxplat = 0;
+        int cnt = 0;
+        while(i < n){
+            
+            if(arr[i] <= dep[j]){
+                cnt++; i++;
+            }
+            
+            else{
+                cnt--;
+                j++;
+            }
+            maxplat = max(maxplat, cnt);
+            
+        }
+        
+        return maxplat;
