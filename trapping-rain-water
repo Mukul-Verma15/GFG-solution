@@ -1,0 +1,17 @@
+  stack<int>st;
+        long long ans=0;
+        for(int i=0;i<n;i++){
+            while(!st.empty() && arr[i]> arr[st.top()]){
+                int top=st.top();
+                st.pop();
+                if(!st.empty()){
+                    int d=i-st.top()-1;
+                    long long bounded_height=min(arr[i],arr[st.top()])-arr[top];
+                    ans+=(bounded_height)*d;
+                }
+            }
+            
+            st.push(i);
+        }
+        
+        return ans;
