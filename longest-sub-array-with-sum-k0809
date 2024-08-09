@@ -1,0 +1,18 @@
+ map<long long, int>sumMap;
+        long long sum =0;
+        int maxlen=0;
+        for (int i=0; i<N;i++){
+            sum+=A[i];
+            if (sum ==K){
+             maxlen=max(maxlen,i+1);   
+            }
+            long long rem = sum-K;
+            if (sumMap.find(rem)!= sumMap.end()){
+                int len = i-sumMap[rem];
+                maxlen=max(maxlen,len);
+            }
+            if (sumMap.find(sum)==sumMap.end()){
+                sumMap[sum]=i;
+            }
+            }
+            return maxlen;
