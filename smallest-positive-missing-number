@@ -1,0 +1,12 @@
+ sort(arr,arr+n);
+        
+        // count is intialize to 1.
+        int count = 1;
+        
+        for(int i =0 ; i < n; i++)
+        { 
+            // when arr[i] euqal to 1 then count increase and this count is our smallest no
+            if(arr[i] == count)
+            count++;
+        }
+        return count;
