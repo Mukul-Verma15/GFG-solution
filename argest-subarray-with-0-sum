@@ -1,0 +1,40 @@
+   if(arr.size()==1)
+        {
+            return arr[0];
+        }
+        int mn=arr[0].size(),ans=-1;;
+        for(int i=1 ; i<arr.size() ; i++)
+        {
+            if(arr[i].size()<mn)
+            {
+                mn=arr[i].size();
+            }
+        }
+        int k=0;
+        for(int j=mn-1 ; j>=0 ; j--)
+        {
+            int x=0;
+            for(int i=0 ; i<arr.size()-1 ; i++)
+            {
+                if(arr[i][j]!=arr[i+1][j])
+                {
+                    x=1;
+                    ans=0;
+                    break;
+                }
+            }
+            if(x==0)
+            {
+                ans++;;
+            }
+        }
+        if(ans!=0)
+        {
+            string s="";
+            for(int i=0 ; i<ans ; i++)
+            {
+                s+=arr[0][i];
+            }
+            return s;
+        }
+        return "-1";
