@@ -1,0 +1,23 @@
+    void rearrange(long long *arr, int n) 
+    { 
+    	
+    	// Your code here
+    priority_queue<long long >pq(arr+n/2,arr+n);
+    vector<long long >ans(n);
+     for(int i=0;i<n;i=i+2){
+         ans[i]=(pq.top());
+         pq.pop();
+     }
+     int j=0;
+     
+     for(int i=1;i<n;i=i+2){
+         ans[i]=arr[j];
+         j++;
+     }
+    
+    for(int i=0;i<n;i++){
+        arr[i]=ans[i];
+    }
+    	 
+    }
+};
