@@ -1,0 +1,22 @@
+class Solution {
+  public:
+    // Function to return the count of the number of elements in
+    // the intersection of two arrays.
+    int NumberofElementsInIntersection(int a[], int b[], int n, int m) {
+        // Your code goes here
+       unordered_map<int, bool>vis;
+       for(int i=0; i<n; i++){
+           vis[a[i]]=true;
+           
+       }
+       int count= 0;
+       for(int i=0; i<m; i++){
+           if(vis[b[i]]== true){
+               count++;
+               //mark vis[b[i]]= false because i second sarry there could be a same number
+               vis[b[i]]= false;
+           }
+       }
+       return count;
+    }
+};
