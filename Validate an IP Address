@@ -1,0 +1,38 @@
+class Solution {
+  public:
+    int isValid(string str) {
+        // code here
+        int dot=0;
+        for(auto z:str){
+            if(z=='.')
+                dot++;
+            else if(!(z>='0' && z<='9'))
+                return 0;
+        }
+        if(dot!=3)
+            return 0;
+        
+        
+        int i=0;
+        int n=str.size();
+        // string p="";
+        while(i<n){
+            string p="";
+            while(i<n && str[i]!='.'){
+                p+=str[i];
+                i++;
+            }
+            // cout<<p<<endl;
+            if(p.size()==0 || (p[0]=='0' && p.size()>1) || p.size()>3)
+                return 0;
+            int t=stoi(p);
+            if(!(t>=0 && t<=255))
+                return 0;
+            i++;
+            
+        }
+        
+        
+        return 1;
+    }
+};
