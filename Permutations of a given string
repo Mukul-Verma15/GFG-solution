@@ -1,0 +1,24 @@
+class Solution
+{
+	public:
+	void helper(int i, set<string> &ans, string& str){
+            if(i==str.size()){
+                ans.insert(str);
+                return;
+            }
+            for(int ind=i; ind<str.size(); ind++){
+                swap(str[i],str[ind]);
+                helper(i+1,ans,str);
+                swap(str[i],str[ind]);
+            }
+        }
+		vector<string>find_permutation(string S)
+		{
+		    // Code here there
+		    set<string> ans;
+            
+            helper(0,ans,S);
+            vector<string> res(ans.begin(),ans.end());
+            return res;
+		}
+};
