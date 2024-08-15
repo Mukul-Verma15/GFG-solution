@@ -1,0 +1,37 @@
+class Solution {
+  public:
+    string longestPalin (string S) {
+        // code here
+         string answer;
+        if(S.empty() || S.length()==0) return answer;
+        int ansStart = 0, ansEnd = 0;
+        for(int i = 1; i<S.length(); i++){
+            int start = 0;
+            int end = i;
+            while(end<S.length()){
+                if(isPalindrome(S, start, end)){
+                    ansStart = start;
+                    ansEnd = end;
+                    break;
+                }
+                start++;
+                end++;
+            }
+        }
+        for(int i = ansStart; i<ansEnd+1;i++){
+            answer+=S[i];
+        }
+        return answer;
+    }
+    bool isPalindrome(string str, int start, int end){
+        // bool flag = true;
+        while(start<end){
+            if(str[start]!=str[end]){
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
+};
