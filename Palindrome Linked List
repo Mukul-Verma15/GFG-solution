@@ -1,0 +1,38 @@
+class Solution {
+  public:
+    // Function to check whether the list is palindrome.
+    bool isPalindrome(Node *head) {
+        // Your code here
+        Node *slow=head;
+        Node *fast=head;
+        while(fast && fast->next!=NULL){
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        
+        Node *prev=NULL;
+        Node *curr=slow;
+        Node *forw=NULL;
+        
+        while(curr!=NULL)
+        {
+            forw=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=forw;
+        }
+        
+        
+        Node *left=head;
+        Node *right=prev;
+        
+        
+        while(right){
+            if(left->data!=right->data)  return false;
+            
+            left=left->next;
+            right=right->next;
+        }
+        return true;
+    }
+};
