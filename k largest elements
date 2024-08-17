@@ -1,0 +1,15 @@
+class Solution{
+public:	
+	vector<int> kLargest(int arr[], int n, int k) {
+	    // code here
+	     vector<int>ans;
+	    
+	    sort(arr,arr+n);
+	    for(int i = 1;i<=k;i++){
+	        ans.push_back(arr[n-i]);
+	    }
+	    
+	    return ans;
+	}
+
+};
