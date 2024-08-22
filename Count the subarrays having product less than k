@@ -1,0 +1,23 @@
+class Solution{
+  public:
+    long long solve(const vector<int>& arr, int n, long long k )
+  {
+      long long ans=0;
+      long long product=1;
+      
+      for(int l=0,r=0;r<n;r++)
+      {
+          product*=arr[r];
+          
+          while(product>=k && l<=r)
+          {
+              product/=arr[l];
+              
+              l++;
+          }
+          
+          ans+=r-l+1;
+      }
+      
+      return ans;
+  }
