@@ -1,0 +1,25 @@
+int matchStrings(string s, string x, int index1, int subStrLen){
+    for(int i=index1,j=0; j<subStrLen; i++, j++)
+        if(s[i]!=x[j]) return -1;
+    return index1;
+}
+
+int strstr(string s, string x)
+{
+     //Your code here
+        int n = s.length();
+    int m = x.length();
+    
+    if(n<m) return -1;
+
+    for(int i=0; i<n; i++){
+        if(s[i]==x[0]){
+            int ans = matchStrings(s, x, i, m);
+            if(ans != -1){
+                return ans;
+            }
+        }
+    }
+    
+    return -1;
+}
