@@ -1,0 +1,54 @@
+//{ Driver Code Starts
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+// } Driver Code Ends
+// User function template for C++
+class Solution {
+  public:
+    vector<int> printUnsorted(vector<int>& arr) {
+        // Code here
+        int n=arr.size();
+        int temp[n];
+        for(int i=0;i<n;i++){
+            temp[i]=arr[i];
+        }
+        sort(temp,temp+n);
+        
+        int l=1e9,r=0;
+        for(int i=0;i<n;i++){
+            if(arr[i]!=temp[i]){
+                if(i<l)l=i;
+                if(i>r)r=i;
+            }
+        }
+        if(l==1e9)l=0;
+        return {l,r};
+    }
+};
+
+//{ Driver Code Starts.
+
+int main() {
+    int t;
+    cin >> t;
+    cin.ignore(); // To ignore the newline character after the number of test cases
+    while (t--) {
+        string input;
+        getline(cin, input);
+        stringstream ss(input);
+        vector<int> arr;
+        int num;
+        while (ss >> num) {
+            arr.push_back(num);
+        }
+        Solution ob;
+        auto ans = ob.printUnsorted(arr);
+        cout << ans[0] << " " << ans[1] << "\n";
+    }
+    return 0;
+}
+
+// } Driver Code Ends
