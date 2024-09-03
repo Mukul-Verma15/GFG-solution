@@ -1,0 +1,23 @@
+class Solution {
+  public:
+    string removeChars(string string1, string string2) {
+        // code here
+            int hs[26];
+        for(int i=0;i<26;i++){
+            hs[i]=0;
+        }
+        for(int i=0;i<string2.size();i++){
+            hs[string2[i]-'a']++;
+        }
+        string res;
+        for(int i=0;i<string1.size();i++){
+            if(hs[string1[i]-'a']!=0){
+                continue;
+            }
+            else{
+                res.push_back(string1[i]);
+            }
+        }
+        return res;
+    }
+};
