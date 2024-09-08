@@ -1,0 +1,75 @@
+//{ Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+string firstRepChar(string s);
+int main()
+ {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        cout<<firstRepChar(s)<<endl;
+    }
+	return 0;
+}
+// } Driver Code Ends
+
+
+string firstRepChar(string s)
+{
+    //code here.
+    unordered_set<char>us;
+    for(auto it:s)
+    {
+        if(us.find(it)==us.end())
+        {
+            us.insert(it);
+        }
+        else
+        {
+            return string("")+it;
+        }
+    }
+    return "-1";
+
+
+}//{ Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+string firstRepChar(string s);
+int main()
+ {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        cout<<firstRepChar(s)<<endl;
+    }
+	return 0;
+}
+// } Driver Code Ends
+
+
+string firstRepChar(string s)
+{
+    //code here.
+    unordered_set<char>us;
+    for(auto it:s)
+    {
+        if(us.find(it)==us.end())
+        {
+            us.insert(it);
+        }
+        else
+        {
+            return string("")+it;
+        }
+    }
+    return "-1";
+
+
+}
