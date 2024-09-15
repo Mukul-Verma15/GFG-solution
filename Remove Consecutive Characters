@@ -1,0 +1,16 @@
+String s=A+B;
+        String ret=""; 
+        for(int i=0; i<s.length(); i++){
+            if(!A.contains(Character.toString(s.charAt(i))) && !ret.contains(Character.toString(s.charAt(i)))){
+                ret+=s.charAt(i);
+            }
+            if(!B.contains(Character.toString(s.charAt(i))) && !ret.contains(Character.toString(s.charAt(i)))){
+                ret+=s.charAt(i);
+            }
+            
+        }
+        char[] ar = ret.toCharArray();
+        Arrays.sort(ar);
+        String sorted = String.valueOf(ar);
+        if(sorted.length()!=0) return sorted;
+        return "-1";
