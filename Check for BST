@@ -1,0 +1,19 @@
+class Solution {
+  public:
+    // Function to check whether a Binary Tree is BST or not.
+    bool fun(Node* root,int mini,int maxi){
+        if(root==NULL)
+            return true;
+        int t=root->data;
+        if(t<=mini || t>=maxi)
+            return false;
+        
+        
+        return fun(root->left,mini,t) && fun(root->right,t,maxi);
+        
+    }
+    bool isBST(Node* root) {
+        // Your code here
+        return fun(root,-1e9,1e9);
+    }
+};
