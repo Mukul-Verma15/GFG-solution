@@ -1,0 +1,24 @@
+class Solution{
+    public:
+    string ExcelColumn(int N)
+    {
+        // Your code goes here
+        string ans = "";
+        
+        while(N > 0){
+            int rem = N % 26;
+            
+            if(rem == 0){
+            ans = 'Z' + ans;
+            N = N/26-1;
+        }
+        
+        else{
+            char ch = 'A' + rem-1;
+            ans = ch + ans;
+            N = N/26;
+            }
+        }
+        return ans;
+    }
+};
