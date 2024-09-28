@@ -1,0 +1,27 @@
+class Solution{
+public:	
+     void NBitBinaryFun(int n,int z,int o,string st,vector<string>&ans){
+         
+         if(z+o==n){
+             ans.push_back(st);
+             return;
+         }
+         
+         if(o<n){
+            NBitBinaryFun(n,z,o+1,st+'1',ans); 
+         }
+         if(o>z){
+            NBitBinaryFun(n,z+1,o,st+'0',ans);  
+         }
+    }
+	vector<string> NBitBinary(int n)
+	{
+	    // Your code goes here
+	   int z=0;
+       int o=0;
+       string st;
+       vector<string>ans;
+       NBitBinaryFun(n,z,o,st,ans);
+       return ans;
+	}
+};
