@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+class Solution
+{
+    public:
+    //Function to calculate sum of all numbers present in a string.
+    int findSum(string str)
+    {
+    	
+    	// Your code here
+    	string s;
+        vector<string> nums;
+         int sum=0;
+        for(int i=0; i<str.size(); i++){
+            while(isdigit(str[i])) {
+                s.push_back(str[i]);
+                i++;
+            }
+            if (!s.empty()) {
+                nums.push_back(s);
+                s = "";
+            }
+        }
+        for(int i=0; i<nums.size(); i++){
+            sum += stoi(nums[i]);
+        }
+    
+        return sum;
+
+    }
+};
