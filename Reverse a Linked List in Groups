@@ -1,0 +1,28 @@
+class Solution {
+  public:
+    struct node *reverseIt(struct node *head, int k) {
+        // Complete this method
+            if(head==nullptr){
+            return nullptr;
+        }
+     
+      node* curr= head;
+      node* prev= nullptr;
+      node* ford= nullptr;
+      int count= 0;
+      while(count<k and curr!=nullptr){
+          ford= curr->next;
+          curr->next= prev;
+          prev= curr;
+          curr= ford;
+          count++;
+          
+      }
+      if(ford!= nullptr){
+          head->next= reverseIt(ford, k);
+          
+      }
+      return prev;
+      
+    }
+};
