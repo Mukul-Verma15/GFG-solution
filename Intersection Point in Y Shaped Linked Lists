@@ -1,0 +1,14 @@
+class Solution {
+  public:
+    // Function to find intersection point in Y shaped Linked Lists.
+    int intersectPoint(Node* head1, Node* head2) {
+        // Your Code Here
+        Node* ptrA=head1;
+        Node* ptrB=head2;
+        while(ptrA!=ptrB){
+            ptrA= ptrA == nullptr ? head1 : ptrA->next;
+            ptrB= ptrB == nullptr ? head2 : ptrB->next;
+        }
+        return ptrA->data;
+    }
+};
