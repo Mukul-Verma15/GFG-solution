@@ -1,0 +1,17 @@
+class Solution {
+  public:
+
+    string removeDups(string str) {
+
+        string s="";
+
+
+        for(char ch: str){
+
+            if(find(s.begin(), s.end(), ch)==s.end()){
+                s+=ch;
+            }
+        }
+        return s;
+    }
+};
