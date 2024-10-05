@@ -1,0 +1,27 @@
+class Solution{
+    public:
+    int longestUniqueSubsttr(string S){
+        //code
+        int len = 0;
+        int first = 0;
+        int second = 0;
+        
+        int n=S.size();
+        vector<bool>v(256,0);
+        
+        while(first < n){
+            
+            //repeating character found
+            while(v[S[first]]){
+                
+                v[S[second]] = 0;
+                second++;
+            }
+            v[S[first]] = 1;
+            len = max(len,first-second+1);
+            first++;
+        }
+        return len;
+        
+    }
+};
