@@ -1,0 +1,85 @@
+//{ Driver Code Starts
+// C++ implementation to convert infix expression to postfix
+#include <bits/stdc++.h>
+using namespace std;
+
+
+// } Driver Code Ends
+class Solution {
+  public:
+    // Function to convert an infix expression to a postfix expression.
+    int prec(char c)
+    {
+        if(c == '^')
+           return 3;
+        else if(c == '*' || c == '/')
+           return 2;
+        else if(c == '+' || c == '-')
+           return 1;
+        else 
+           return -1;
+    }
+    string infixToPostfix(string s) {
+        // Your code here
+        stack<char> spp;
+        string ans;
+        
+        for(int i=0;i<s.length();i++)
+        {
+            char c = s[i];
+            if((c >= 'A' && c <= 'Z' )|| 
+            (c >= '0' && c <= '9')  ||
+            ( c >= 'a' && c <= 'z'))
+            {
+                ans+=c;
+            }
+            else if(c == '(')
+            {
+                spp.push(c);
+            }
+            else if(c == ')')
+            {
+                while(spp.top()!='(')
+                {
+                    ans+=spp.top();
+                    spp.pop();
+                }
+                spp.pop();
+            }
+            else
+            {
+                while(!spp.empty() && prec(s[i])<=prec(spp.top()))
+                {
+                    ans+=spp.top();
+                    spp.pop();
+                }
+                spp.push(c);
+            }
+        }
+        
+        while(!spp.empty())
+        {
+            ans+=spp.top();
+            spp.pop();
+        }
+        return ans;
+    }
+};
+
+
+//{ Driver Code Starts.
+// Driver program to test above functions
+int main() {
+    int t;
+    cin >> t;
+    cin.ignore(INT_MAX, '\n');
+    while (t--) {
+        string exp;
+        cin >> exp;
+        Solution ob;
+        cout << ob.infixToPostfix(exp) << endl;
+    }
+    return 0;
+}
+
+// } Driver Code Ends
