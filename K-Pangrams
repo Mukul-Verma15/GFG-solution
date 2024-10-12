@@ -1,0 +1,21 @@
+class Solution {
+  public:
+
+    bool kPangram(string str, int k) {
+        // code here
+         // code here
+        if(str.length()<26) return false;
+        int arr[26]={};
+        for(int i=0;i<str.length();i++){
+            if(str[i]>=65 && str[i]<=90) arr[str[i]-65]++;
+            else if(str[i]>=97 && str[i]<=122) arr[str[i]-97]++;
+        }
+        int c=0,l=0;
+        for(int i=0;i<26;i++) {
+            if(arr[i]>0) c++;
+            l+=arr[i];
+        }
+        if(l>=26 && 26-c<=k) return true;
+        return false;
+    }
+};
