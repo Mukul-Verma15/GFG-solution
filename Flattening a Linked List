@@ -1,0 +1,25 @@
+  vector<int> ans;
+       Node* curr= root;
+       while(curr!=nullptr){
+           ans.push_back(curr->data);
+           Node* btm= curr->bottom;
+           while(btm!=nullptr){
+               ans.push_back(btm->data);
+               btm= btm->bottom;
+               
+           }
+           curr= curr->next;
+           
+       }
+       //ssort the vector
+       sort(ans.begin(), ans.end());
+       Node* dummy= new  Node(-1);
+       Node* head= dummy;
+       for (int i=0; i<ans.size(); i++){
+           Node* temp= new Node(ans[i]);
+           head->bottom= temp;
+           head->next= nullptr;
+           head= temp;
+       }
+       dummy= dummy->bottom;
+       return dummy;
