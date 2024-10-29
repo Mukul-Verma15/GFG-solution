@@ -1,0 +1,64 @@
+//{ Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+
+// } Driver Code Ends
+class Solution{
+    public:
+    int findSubString(string str)
+    {
+        // Your code goes here   
+        set<char>s;
+        int n=str.length();
+        if(n==1){
+            return 1;
+        }
+        for(int i=0;i<n;i++){
+            s.insert(str[i]);
+        }
+        int disCount=s.size();
+        int minLength=INT_MAX;
+        int start=0;
+        int minStart=0;
+        int counter =0;
+        int visited[58]={0}; //A-z=57 so 58 is the size of array
+        for(int i=0;i<n;i++){
+            visited[str[i]-65]++;
+            if(visited[str[i]-65]==1){
+                counter++;
+            }
+            if(counter==disCount){
+                while(visited[str[start]-65]>1){
+                    visited[str[start]-65]--;
+                    start++;
+                }
+                int currentLen=i-start+1;
+                if(currentLen<minLength){
+                    minLength=currentLen;
+                    // for return correct subarray starting index
+                    minStart=start;
+                }
+            }
+        }
+        return minLength;
+    }
+};
+
+//{ Driver Code Starts.
+// Driver code
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+
+        string str;
+        cin >> str;
+        Solution ob;
+        cout << ob.findSubString(str) << endl;
+    
+cout << "~" << "\n";
+}
+    return 0;
+}
+// } Driver Code Ends
