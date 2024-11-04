@@ -1,0 +1,110 @@
+//{ Driver Code Starts
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <unordered_map>
+#include <vector>
+using namespace std;
+
+struct Node {
+    int data;
+    struct Node *next;
+
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
+
+void printList(Node *node) {
+    while (node != NULL) {
+        cout << node->data << " ";
+        node = node->next;
+    }
+    cout << "\n";
+}
+
+
+// } Driver Code Ends
+// User function template for C++
+
+/*
+struct Node
+{
+    int data;
+    struct Node* next;
+
+    Node(int x){
+        data = x;
+        next = NULL;
+    }
+};
+*/
+class Solution {
+  public:
+    Node* divide(Node* head) {
+        // code here
+          Node*odd=head,*even=head,*root=head,*firstOdd=head,*firstEven=head;
+        while((firstEven->data)%2&&firstEven){
+            firstEven=firstEven->next;
+        }
+        while((firstOdd->data)%2==0&&firstOdd){
+            firstOdd=firstOdd->next;
+        }
+        if(!firstEven||!firstOdd)return head;
+        head=firstEven;
+        even=firstEven,odd=firstOdd;
+        while(root){
+            if((root->data)%2==0&&root!=firstEven ){
+                even->next=root,even=root;
+            }
+            else if((root->data)%2==1 && root!=firstOdd){
+                odd->next=root,odd=root;
+            }
+            root=root->next;
+        }
+        even->next=firstOdd;
+        odd->next=NULL;
+        return head;
+    }
+};
+
+//{ Driver Code Starts.
+
+int main() {
+
+    int t;
+    cin >> t;
+    cin.ignore(); // To ignore the newline character after the integer input
+    while (t--) {
+        vector<int> arr;
+        string input;
+        getline(cin, input);
+        stringstream ss(input);
+        int number;
+        while (ss >> number) {
+            arr.push_back(number);
+        }
+
+        if (arr.empty())
+            continue;
+
+        int data = arr[0];
+        int N = arr.size();
+        struct Node *head = new Node(data);
+        struct Node *tail = head;
+        for (int i = 1; i < N; ++i) {
+            data = arr[i];
+            tail->next = new Node(data);
+            tail = tail->next;
+        }
+
+        Solution ob;
+        Node *ans = ob.divide(head);
+        printList(ans);
+        cout << "~" << endl;
+    }
+    return 0;
+}
+
+// } Driver Code Ends
