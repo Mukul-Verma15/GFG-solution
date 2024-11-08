@@ -1,0 +1,27 @@
+class Solution{   
+public:
+    int minimumNumberOfSwaps(string S){
+        // code here 
+    int openCount = 0;    
+    int closeCount = 0;  
+    int imbalance = 0;   
+    int swaps = 0;        // Total swaps required
+
+    // Traverse through the string
+    for (char c : S) {
+        if (c == '[') {
+            openCount++;  
+           
+            if (imbalance > 0) {
+                swaps += imbalance;
+                imbalance--;  // After swapping, reduce the imbalance
+            }
+        } else if (c == ']') {
+            closeCount++;  // Found a closing bracket
+            imbalance = closeCount - openCount;
+        }
+    }
+
+    return swaps;
+    }
+};
