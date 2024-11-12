@@ -1,0 +1,28 @@
+ set<int> st;
+        
+        struct Node* h1 = head1, *h2;
+        while(h1) 
+        {
+            st.insert(h1->data);
+            h2 = h1;
+            h1 = h1->next;
+        }
+        h1 = h2;
+        h2= head2;
+        while(h2)
+        {
+            st.insert(h2->data);
+            h2 = h2->next;
+        }
+        h1->next = head2;
+        h1 = head1;
+        
+        for (auto x: st)
+        {
+            h1->data = x;
+            h2 = h1;
+            h1 = h1->next;
+        }
+        
+        h2->next = NULL;
+        return head1;
