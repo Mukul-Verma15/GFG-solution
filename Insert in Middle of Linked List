@@ -1,0 +1,16 @@
+ Node *temp=new Node(x);
+        if(head==NULL){
+            return temp;
+        }
+        
+        Node *slow=head;
+        Node *fast=head;
+        
+        while(fast&&fast->next&&fast->next->next){
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        
+        temp->next=slow->next;
+        slow->next=temp;
+        return head;
