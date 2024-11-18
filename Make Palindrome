@@ -1,0 +1,71 @@
+//{ Driver Code Starts
+//Initial Template for C++
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+// } Driver Code Ends
+//User function Template for C++
+
+class Solution{
+public:
+    bool makePalindrome(int n,vector<string> &arr){
+        // Code here
+          unordered_multiset<string> mySet;
+        string cur = "";
+        string check = "";
+        
+        for(int i=0;i<n;i++)
+        {
+            cur = arr[i];
+            reverse(cur.begin() , cur.end());
+            auto it = mySet.find(cur);
+            if(it != mySet.end())
+                mySet.erase(it);
+            else
+                mySet.insert(arr[i]);
+        }
+        
+        if(mySet.size() == 0)
+        {
+            return true;
+        }
+        else if(mySet.size() == 1) //check if this left one is palindrome or not
+        {
+            cur = *mySet.begin();
+            check = cur;
+            reverse(check.begin(),check.end());
+            if(check == cur)
+                return true;
+            else
+                return false;
+        }
+        else
+        {
+            return false;
+        }
+    }
+};
+
+//{ Driver Code Starts.
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        vector<string> arr(n);
+        for(int i=0;i<n;i++){
+            cin>>arr[i];
+        }
+        Solution ob;
+        if(ob.makePalindrome(n,arr)) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+    
+cout << "~" << "\n";
+}
+    return 0;
+}
+// } Driver Code Ends
