@@ -1,0 +1,36 @@
+Node* newNode = new Node(data);
+
+        // Case: Empty list
+        if (head == NULL) {
+            newNode->next = newNode;
+            return newNode;
+        }
+
+        Node* tail = getTail(head);
+
+        // Case: Insert at the beginning or before the head
+        if (data < head->data) {
+            newNode->next = head;
+            tail->next = newNode;
+            return newNode; // New head of the list
+        }
+
+        // General case: Insert in sorted position (between nodes or at the end)
+        Node* cur = head;
+        while (cur->next != head && cur->next->data < data) {
+            cur = cur->next;
+        }
+
+        // Insert newNode after `cur`
+        newNode->next = cur->next;
+        cur->next = newNode;
+
+        return head; // Head remains the same
+    }
+
+    Node* getTail(Node* head) {
+        Node* tmp = head;
+        while (tmp->next != head) {
+            tmp = tmp->next;
+        }
+        return tmp;
