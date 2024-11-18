@@ -1,0 +1,9 @@
+  if(head == NULL || head->next == NULL) return NULL;
+        Node* b = head;
+        Node* t = head->next->next;
+        while(t != NULL && t->next!= NULL) {
+            b = b->next;
+            t = t->next->next;
+        }
+        b->next = b->next->next;
+        return head;
