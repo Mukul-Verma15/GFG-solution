@@ -1,0 +1,37 @@
+ 
+        Node* p = node1;
+        Node* q = node2;
+        Node* head = new Node(-1);
+        Node* dummy = head;
+        
+        while(p != NULL && q != NULL)
+        {
+            if(p->data > q->data)
+            {
+                head->next = q;
+                head = q;
+                q = q->next;
+            }
+            else
+            {
+                head->next = p;
+                head = p;
+                p = p->next;
+            }
+        }
+        
+        while(p != NULL)
+        {
+            head->next = p;
+            head = p;
+            p = p->next;
+        }
+        
+        while(q != NULL)
+        {
+            head->next = q;
+            head = q;
+            q = q->next;
+        }
+
+        return reverse(dummy->next);
